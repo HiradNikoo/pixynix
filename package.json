@@ -1,0 +1,102 @@
+{
+    "name": "pixynix",
+    "displayName": "pixynix",
+    "description": "pixynix is every musicoholic developer's favorite tool. Play online music while coding.",
+    "version": "0.0.1",
+    "publisher": "HiradNikoo",
+    "engines": {
+        "vscode": "^1.25.0"
+    },
+    "categories": [
+        "Other"
+    ],
+	"galleryBanner": {
+		"color": "#8647ae",
+		"theme": "dark"
+	},  
+    "activationEvents": [
+        "onCommand:pixynix.sayHello",
+        "onCommand:pixynix.showSearch",
+        "onCommand:pixynix.refresh"
+    ],
+    "main": "./extension",
+    "contributes": {
+        "commands": [
+			{
+				"command": "pixynix.showSearch",
+				"title": "Search Music",
+				"category": "pixynix",
+				"icon": {
+					"dark": "assets/images/icons/dark/icon-search.svg",
+					"light": "assets/images/icons/light/icon-search.svg"
+				}
+			},
+            {
+                "command": "pixynix.sayHello",
+                "title": "pixynix"
+            },
+            {
+                "command": "pixynix.refresh",
+                "title": "Refresh",
+                "category": "pixynix",
+                "icon": {
+                  "light": "assets/images/icons/light/refresh.svg",
+                  "dark": "assets/images/icons/dark/refresh.svg"
+                }
+            }
+        ],
+        "menus": {
+            "commandPalette": [
+                {
+                    "command": "pixynix.refresh"
+                },
+				{
+					"command": "pixynix.showSearch"
+				}
+            ],
+            "view/title": [
+				{
+					"command": "pixynix.refresh",
+					"group": "navigation@1"
+                },
+                {
+					"command": "pixynix.showSearch",
+					"group": "navigation@1"
+                }
+            ]
+        },
+        "viewsContainers": {
+            "activitybar": [
+                {
+                    "id": "pixynix",
+                    "title": "pixynix",
+                    "icon": "assets/images/icon5.svg"
+                }
+            ]
+        },
+        "views": {
+            "pixynix": [
+                {
+                    "id": "pixynix.onlineExplorer",
+                    "name": "Online"
+                },
+                {
+                    "id": "pixynix.playlistExplorer",
+                    "name": "Playlist"
+                }
+            ]
+        }
+    },
+    "scripts": {
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript": "^2.0.3",
+        "vscode": "^1.0.0",
+        "mocha": "^2.3.3",
+        "eslint": "^3.6.0",
+        "@types/node": "^6.0.40",
+        "@types/mocha": "^2.2.32"
+    }
+}
